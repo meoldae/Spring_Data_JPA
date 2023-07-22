@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Slf4j
 @Entity
-@Getter
+@Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
 public class Member {
@@ -26,7 +26,7 @@ public class Member {
     public Member(String userName, int age, Team team) {
         this.userName = userName;
         this.age = age;
-        changeTeam(team);
+        if (team != null) changeTeam(team);
     }
 
     public void changeTeam(Team team) {
